@@ -467,6 +467,8 @@ describe('app module', () => {
     })
 
     it('correctly sets and unsets the LoginItem as hidden', () => {
+      if (process.platform !== 'darwin' || process.mas) this.skip()
+
       expect(app.getLoginItemSettings().openAtLogin).to.be.false()
       expect(app.getLoginItemSettings().openAsHidden).to.be.false()
 
